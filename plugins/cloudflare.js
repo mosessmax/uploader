@@ -10,9 +10,9 @@ export default defineNuxtPlugin(({ $config }) => {
     accessKey: process.env.CLOUDFLARE_ACCESS_KEY,
   }
 
-  return {
-    provide: {
-      cloudflare: {
+    // provide: {
+    //   cloudflare: {
+        const cloudflareState = useState('cloudflare', () => ({
         config: devalue(config),
         getUploadUrl: async (fileName) => {
           const response = await $fetch(`/api/upload-url?fileName=${fileName}`, {
@@ -25,7 +25,11 @@ export default defineNuxtPlugin(({ $config }) => {
 
           return response.uploadUrl
         },
+      }))
+
+      return {
+        provie: {
+        cloudflare: cloudflareState,
       },
-    },
-  }
+    }
 })

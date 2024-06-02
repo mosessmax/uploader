@@ -1,7 +1,8 @@
 import * as crypto from 'crypto'
 
 export default defineEventHandler(async (event) => {
-  const { accountId, bucketName, accessKey } = await useBody(event)
+    const body = await readBody(event)
+  const { accountId, bucketName, accessKey } = body
   const fileName = getQuery(event).fileName
 
   const now = new Date()
