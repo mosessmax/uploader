@@ -85,7 +85,7 @@
   
   const handleFileUpload = async (event) => {
     const file = event.target.files[0]
-    const uploadUrl = await cloudflare.value.getUploadUrl(file.name)
+    const uploadUrl = await cloudflare.getUploadUrl(file.name)
   
     try {
       await fetch(uploadUrl, {

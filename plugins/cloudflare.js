@@ -43,7 +43,7 @@ export default defineNuxtPlugin(({ $config }) => {
     accessKey: process.env.CLOUDFLARE_ACCESS_KEY,
   }
 
-  const cloudflareState = useState('cloudflare', () => ({
+  const cloudflareState = reactive({
     config,
     getUploadUrl: async (fileName) => {
       const response = await fetch('/api/upload-url', {
@@ -51,13 +51,13 @@ export default defineNuxtPlugin(({ $config }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        // body: JSON.stringify({ ...config, fileName }),
+        body: JSON.stringify({ ...config, fileName }),
       })
 
       const { uploadUrl } = await response.json()
       return uploadUrl
     },
-  }))
+  })
 
   return {
     provide: {
