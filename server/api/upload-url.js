@@ -2,8 +2,8 @@ import * as crypto from 'crypto'
 
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
-  const { accountId, bucketName, accessKey } = body
-  const fileName = getQuery(event).fileName
+  const { accountId, bucketName, accessKey, fileName } = body
+//   const fileName = getQuery(event).fileName
 
   const now = new Date()
   const expiration = new Date(now.getTime() + 60 * 60 * 1000) // 1 hour expiration

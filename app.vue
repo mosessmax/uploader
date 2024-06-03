@@ -8,3 +8,7 @@
     </div>
   </div>
 </template>
+
+<script setup>
+provideHeadlessUseId(() => useId())
+</script>
