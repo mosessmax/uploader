@@ -92,9 +92,9 @@
         method: 'PUT',
         body: file,
       })
-      uploadStatus.value = 'file uploaded successfully!'
+      uploadStatus.value = 'File uploaded successfully!'
     } catch (error) {
-      uploadStatus.value = 'error uploading file.'
+      uploadStatus.value = 'Error uploading file.'
       console.error(error)
     }
   }
