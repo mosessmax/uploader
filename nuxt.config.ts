@@ -13,5 +13,12 @@ headlessui: {
   devtools: { enabled: true },
   experimental: {
     renderJsonPayloads: false
-  }
+  },
+  runtimeConfig: {
+    public: {
+      CLOUDFLARE_ACCOUNT_ID: process.env.CLOUDFLARE_ACCOUNT_ID,
+      CLOUDFLARE_BUCKET_NAME: process.env.CLOUDFLARE_BUCKET_NAME,
+      CLOUDFLARE_ACCESS_KEY: process.env.CLOUDFLARE_ACCESS_KEY,
+    },
+  },
 })
